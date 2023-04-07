@@ -1,0 +1,83 @@
+@use '../general/variables';
+
+nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.navigation-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 0.3125rem;
+  color: variables.$color-grey-text;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.875rem;
+  place-self: center;
+
+  svg {
+    height: 1.5rem;
+    width: 1.5rem;
+
+    path {
+      fill: variables.$color-grey-text;
+    }
+  }
+
+  &.active {
+    background-color: variables.$color-white;
+    color: variables.$color-primary;
+    box-shadow: variables.$box-shadow-nav-item;
+
+    svg path {
+      fill: variables.$color-primary;
+    }
+  }
+
+  &:hover {
+    color: variables.$color-primary;
+
+    svg path {
+      fill: variables.$color-primary;
+    }
+  }
+}
+
+@media (min-width: 22rem) {
+  nav {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: variables.$breakpoint-sidebar) {
+  nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .navigation-item {
+    gap: 0.375rem;
+    height: 4rem;
+    width: 4rem;
+    font-size: 0.625rem;
+
+    svg {
+      height: 1.25rem;
+      width: 1.25rem;
+    }
+
+    &.active {
+      box-shadow: none;
+    }
+  }
+}

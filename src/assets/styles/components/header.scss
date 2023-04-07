@@ -1,0 +1,78 @@
+@use '../general/variables';
+
+header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-top: 1.75rem;
+  padding-bottom: 2rem;
+  max-width: variables.$max-width-content;
+  margin-inline: auto;
+  width: 100%;
+}
+
+.logo {
+  width: 6.5rem;
+}
+
+.menu-icon:hover,
+.close-icon:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.mobile-menu {
+  display: none;
+
+  &.expanded {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+    z-index: 1;
+    background-color: variables.$color-background;
+    padding: 1.5rem 1rem;
+  }
+
+  .logo {
+    width: 8.6875rem;
+    margin: 4rem auto;
+  }
+
+  .search-wrapper {
+    max-width: calc(100% - ((100% - 2rem) / 3 - 6rem) / 2 * 2);
+    margin-bottom: 2rem;
+    margin-inline: auto;
+  }
+}
+
+@media (min-width: variables.$breakpoint-sidebar) {
+  header {
+    flex-direction: row;
+    align-items: center;
+    gap: 2.6875rem;
+    padding-top: 2rem;
+    padding-bottom: 1.75rem;
+  }
+
+  .banner.visible + header {
+    padding-top: calc(2rem + 3.75rem);
+  }
+
+  .logo {
+    width: 8.6875rem;
+  }
+
+  .menu-icon {
+    display: none;
+  }
+
+  .mobile-menu.expanded {
+    display: none;
+  }
+}

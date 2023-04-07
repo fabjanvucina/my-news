@@ -1,0 +1,17 @@
+//TODO: organize rule declarations in each file
+
+@use './general/base.scss';
+@use './general/reset.scss';
+@use './general/typography.scss';
+@use './general/util.scss';
+
+@use './components/article-card.scss';
+@use './components/articles.scss';
+@use './components/banner.scss';
+@use './components/button.scss';
+@use './components/footer.scss';
+@use './components/header.scss';
+@use './components/latest-articles-widget.scss';
+@use './components/navigation.scss';
+@use './components/searchbar.scss';
+@use './components/spinner.scss';

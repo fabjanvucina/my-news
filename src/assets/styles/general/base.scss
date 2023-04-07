@@ -1,0 +1,44 @@
+@use './variables';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: variables.$font-family;
+}
+
+body {
+  min-height: 100vh;
+}
+
+#root {
+  background-color: variables.$color-background;
+  padding-inline: 1rem;
+  min-height: 100vh;
+  min-width: 18rem;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  width: 100%;
+
+  nav {
+    display: none;
+  }
+}
+
+@media (min-width: variables.$breakpoint-sidebar) {
+  main {
+    display: flex;
+    gap: 1.5625rem;
+    max-width: variables.$max-width-content;
+    margin-inline: auto;
+    padding-top: 1.5rem;
+    border-top: 0.0625rem solid variables.$color-divider-grey-background;
+
+    nav {
+      display: flex;
+    }
+  }
+}

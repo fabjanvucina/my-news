@@ -1,0 +1,53 @@
+@use '../general/variables';
+
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 45.3125rem;
+}
+
+.search-input {
+  height: 3rem;
+  width: 100%;
+  padding-block: 1rem;
+  padding-left: 2.25rem;
+  font-size: 0.9375rem;
+  line-height: 1.25rem;
+  outline: none;
+  border: none;
+  border-radius: 0.625rem;
+  background-color: variables.$color-white;
+  background-image: url('../../img/icons/search.svg');
+  background-repeat: no-repeat;
+  background-position: 0.75rem center;
+  background-size: 1rem;
+  box-shadow: variables.$box-shadow-search;
+}
+
+.search-input::placeholder {
+  color: variables.$color-grey-text-placeholder;
+}
+
+.search-input::-webkit-search-decoration,
+.search-input::-webkit-search-cancel-button,
+.search-input::-webkit-search-results-button,
+.search-input::-webkit-search-results-decoration {
+  display: none;
+}
+
+.search-button {
+  display: none;
+}
+
+@media (min-width: variables.$breakpoint-sidebar) {
+  .search-input {
+    height: 3.125rem;
+  }
+
+  .search-button {
+    display: initial;
+    margin-left: -6.1875rem;
+    font-size: 0.9375rem;
+  }
+}

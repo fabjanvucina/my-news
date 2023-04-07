@@ -1,0 +1,57 @@
+@use '../general/variables';
+
+.banner {
+  display: none;
+}
+
+@media (min-width: variables.$breakpoint-sidebar) {
+  .banner.visible {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    line-height: 1.25rem;
+    padding: 0.625rem 1rem;
+    background: url('../../img/banner.svg') center center no-repeat,
+      variables.$linear-gradient-banner;
+    color: variables.$color-white;
+    font-size: 0.875rem;
+  }
+
+  .banner-content {
+    max-width: variables.$max-width-content;
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+
+    &__title {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    &__subtitle {
+      display: none;
+    }
+
+    &__actions {
+      display: flex;
+      gap: 0.5rem;
+      margin-left: auto;
+    }
+  }
+}
+
+@media (min-width: variables.$breakpoint-3-col) {
+  .banner-content {
+    &__title {
+      margin-right: 2.875rem;
+    }
+
+    &__subtitle {
+      display: block;
+      font-weight: 300;
+    }
+  }
+}

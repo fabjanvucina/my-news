@@ -1,0 +1,121 @@
+@use '../general/variables';
+
+.latest-widget {
+  border-radius: 0.5rem;
+  background-color: variables.$color-white;
+}
+
+.latest-widget-header {
+  display: flex;
+  align-items: center;
+  gap: 1.3125rem;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  padding: 1.25rem 1rem;
+  border-bottom: 1px solid variables.$color-divider-white-background;
+
+  .radio-indicator {
+    background-color: variables.$color-primary;
+    height: 0.625rem;
+    width: 0.625rem;
+    position: relative;
+    left: 0.3125rem;
+    border-radius: 50%;
+
+    &::before {
+      content: '';
+      background-color: inherit;
+      opacity: 0.24;
+      width: 1.25rem;
+      height: 1.25rem;
+      position: absolute;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate3d(-50%, -50%, 0);
+    }
+  }
+}
+
+.latest-widget-list {
+  padding-inline: 1rem;
+  max-height: calc(100vh - 22.875rem);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: variables.$color-scrollbar-widget variables.$color-white;
+
+  &::-webkit-scrollbar {
+    width: 0.25rem;
+    background-color: variables.$color-white;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: variables.$color-scrollbar-widget;
+
+    &:hover {
+      background-color: variables.$color-scrollbar-widget-hover;
+    }
+  }
+}
+
+.latest-widget-article {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1875rem;
+  padding-block: 0.75rem;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid variables.$color-divider-white-background;
+  }
+
+  &__time {
+    color: variables.$color-blue;
+    font-size: 0.625rem;
+    font-weight: 700;
+    line-height: 1rem;
+  }
+
+  &__title {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.25rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+}
+
+.latest-widget-footer {
+  padding: 1.25rem 1rem;
+  border-top: 1px solid variables.$color-divider-white-background;
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    width: fit-content;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.25rem;
+    color: variables.$color-blue;
+
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+}
+
+@media (min-width: variables.$breakpoint-sidebar) {
+  .latest-widget-list {
+    max-height: 25.25rem;
+  }
+}

@@ -1,0 +1,40 @@
+@use './variables';
+
+.flex {
+  display: flex;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.highlight {
+  color: variables.$color-primary;
+}
+
+.width-100 {
+  width: 100%;
+}
+
+/* each element has to specify the -webkit-line-clamp value */
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  word-break: break-word;
+}
+
+.tab-focus {
+  &:focus-visible {
+    outline: 0.125rem solid variables.$color-text;
+  }
+}

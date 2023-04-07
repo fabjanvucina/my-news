@@ -1,0 +1,9 @@
+@use '../general/variables';
+
+footer {
+  padding-top: 4rem;
+  padding-bottom: 3.5rem;
+  margin-top: auto;
+  text-align: center;
+  color: variables.$color-grey-text;
+}
