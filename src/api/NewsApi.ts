@@ -5,6 +5,7 @@ import { ApiDto, ApiError } from './types'
 
 export class NewsApi {
   private readonly API_KEY = String(process.env.REACT_APP_NEWS_API_KEY)
+  private readonly PROD = process.env.NODE_ENV === 'production'
 
   private static instance: NewsApi
 
@@ -19,6 +20,10 @@ export class NewsApi {
   }
 
   public async getFeaturedArticles(category: ArticleCategory, query: string) {
+    if (this.PROD) {
+      return getMockFeaturedArticles(category)
+    }
+
     const requestUrl = `${API_URL}/top-headlines?category=${category}&country=us${
       query ? `&q=${encodeURIComponent(query)}` : ''
     }&pageSize=${PAGE_SIZE}&apiKey=${this.API_KEY}`
@@ -43,6 +48,10 @@ export class NewsApi {
   }
 
   public async getLatestArticles(query: string, page?: number) {
+    if (this.PROD) {
+      return getMockLatestArticlesData()
+    }
+
     const requestUrl = `${API_URL}/everything?sources=${SOURCES}${
       query ? `&q=${encodeURIComponent(query)}` : ''
     }&pageSize=${PAGE_SIZE}${page ? `&page=${page}` : ''}&apiKey=${

@@ -22,14 +22,21 @@ export function SearchBar(props: Props) {
     props.onSubmit?.()
   }
 
+  const prod = process.env.NODE_ENV === 'production'
+
   return (
     <form onSubmit={handleSubmit} className="search-wrapper">
       <input
         type="search"
         className="search-input"
         value={value}
-        placeholder="Search news"
+        placeholder={
+          prod
+            ? 'Searching is not available due to API restrictions.'
+            : 'Search news'
+        }
         spellCheck={false}
+        disabled={prod}
         onChange={(e) => setValue(e.target.value)}
       />
       <Button
